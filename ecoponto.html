@@ -1,0 +1,178 @@
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Ecoponto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #388e3c;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2e7d32;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #2e7d32;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #1b5e20;
+        }
+
+        footer {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Plataforma Ecoponto</h1>
+        <p>Descarte consciente e sustentável</p>
+    </header>
+
+    <nav>
+        <a href="#home">Início</a>
+        <a href="#materiais">Materiais Aceitos</a>
+        <a href="#coleta">Solicitar Coleta</a>
+    </nav>
+
+    <div class="container">
+
+        <div id="home" class="card">
+            <h2>Bem-vindo ao Ecoponto</h2>
+            <p>Contribua com o meio ambiente descartando seus resíduos de forma correta. Aqui você encontra informações
+                sobre materiais aceitos e pode solicitar coleta domiciliar.</p>
+        </div>
+
+        <div id="materiais" class="card">
+            <h2>Materiais Aceitos</h2>
+            <ul>
+                <li>📄 Papel e papelão</li>
+                <li>🥤 Plásticos</li>
+                <li>🥫 Metais (latas, alumínio)</li>
+                <li>🍾 Vidros</li>
+                <li>🔋 Pilhas e baterias</li>
+                <li>💻 Eletrônicos pequenos</li>
+                <li>🛠️ Entulho leve (até 1m³)</li>
+            </ul>
+        </div>
+
+        <div id="coleta" class="card">
+            <h2>Solicitar Coleta</h2>
+            <form id="formColeta">
+                <label>Nome:</label>
+                <input type="text" id="nome" required>
+
+                <label>Endereço:</label>
+                <input type="text" id="endereco" required>
+
+                <label>Material para coleta:</label>
+                <select id="material" required>
+                    <option value="">Selecione</option>
+                    <option value="papel">Papel/Papelão</option>
+                    <option value="plastico">Plástico</option>
+                    <option value="metal">Metal</option>
+                    <option value="vidro">Vidro</option>
+                    <option value="pilhas">Pilhas/Baterias</option>
+                    <option value="eletronicos">Eletrônicos</option>
+                    <option value="entulho">Entulho leve</option>
+                </select>
+
+                <label>Observações:</label>
+                <textarea id="observacoes" rows="4"></textarea>
+
+                <button type="submit">Enviar Solicitação</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ecoponto Sustentável. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('formColeta');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const endereco = document.getElementById('endereco').value;
+            const material = document.getElementById('material').value;
+            const observacoes = document.getElementById('observacoes').value;
+
+            if (nome && endereco && material) {
+                alert(`Obrigado, ${nome}! Sua solicitação de coleta de ${material} foi recebida e em breve entraremos em contato no endereço: ${endereco}.`);
+                form.reset();
+            } else {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
